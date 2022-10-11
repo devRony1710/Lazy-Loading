@@ -12,7 +12,9 @@ const createImageNode = (image) => {
     const imagen = document.createElement('img')
     imagen.className = 'mx-auto'
     imagen.width = '320'
-    imagen.src = image
+
+    // El dataset es un metodo que se usa para comunicar informacion entre html y js
+    imagen.dataset.src = image
 
     // added img node to container
     container.append(imagen)

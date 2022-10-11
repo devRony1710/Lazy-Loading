@@ -6,9 +6,14 @@ const isIntersecting = entry => {
 }
 
 //Creo una funcion action que recibe una entrada
-const action = (entry) => {
+const loadImage = (entry) => {
     // esta variable busca en la entrada la propiedad target que es el nombre del nodo, ejemplo, img
     const nodo = entry.target
+
+    
+    const urlImage = nodo.dataset.src
+
+    nodo.src = urlImage
 
     // aqui le indicamos al observador que deje de observar el nodo si la accion se vuelve a ejecutar, ejemplo, se observara una
     // unica vez y no cargara las imagenes cada vez que el observador la detecte
@@ -24,7 +29,7 @@ const observer = new IntersectionObserver(entries => {
     // filtro por su propiedad isIntersecting para reconocer el true or false
     .filter(isIntersecting)
     // por cada una de las entradas ejecuto la action de dejar de observar
-    .forEach(action)
+    .forEach(loadImage)
 })
 
 
